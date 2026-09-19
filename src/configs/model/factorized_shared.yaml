@@ -1,0 +1,3 @@
+name: bert-base-cased
+embedding_rank: 128
+num_unique_layers: 2

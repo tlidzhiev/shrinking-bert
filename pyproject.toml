@@ -4,7 +4,16 @@ version = "0.1.0"
 description = "Exploring model compression techniques using BERT for NER task"
 readme = "README.md"
 requires-python = "==3.12.11"
-dependencies = []
+dependencies = [
+    "accelerate>=1.15.0",
+    "comet-ml>=3.58.6",
+    "datasets==3.6.0",
+    "hydra-core>=1.3.7",
+    "numpy>=2.5.3",
+    "seqeval>=1.2.2",
+    "torch>=2.14.0",
+    "transformers>=5.17.0",
+]
 
 [dependency-groups]
 dev = [

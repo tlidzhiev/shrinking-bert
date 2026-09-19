@@ -1,0 +1,3 @@
+name: bert-base-cased
+embedding_rank: 64
+num_unique_layers: null
