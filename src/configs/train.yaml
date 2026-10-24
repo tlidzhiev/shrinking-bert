@@ -19,7 +19,7 @@ training_args:
 
   # Schedule: set max_steps > 0 for iteration-based training
   num_train_epochs: 0
-  max_steps: 1000
+  max_steps: 2000
 
   # Batching. The global batch is
   # per_device_train_batch_size * gradient_accumulation_steps * num_devices
@@ -43,7 +43,7 @@ training_args:
   # Precision and compilation
   bf16: true
   fp16: false
-  tf32: null
+  tf32: true
   torch_compile: true
   torch_compile_mode: null # "default" | "reduce-overhead" | "max-autotune"
 
