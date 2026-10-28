@@ -1,0 +1,10 @@
+name: bert-base-cased # source of the config and the vocabulary size
+pretrained: false # random init: the student is trained from scratch
+config_overrides:
+  hidden_size: 384
+  num_hidden_layers: 4
+  num_attention_heads: 6
+  intermediate_size: 1536
+embedding_rank: null
+linear_rank: null
+num_unique_layers: null

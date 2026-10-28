@@ -1,0 +1,16 @@
+defaults:
+  - train
+  - override /model: student
+  - override /distillation: kd
+  - _self_
+
+writer:
+  run_name: student_kd
+
+training_args:
+  max_steps: 20000
+  learning_rate: 2.0e-4
+  warmup_steps: 0.05 # fraction of max_steps
+  eval_steps: 500
+  save_steps: 500
+  save_total_limit: 2

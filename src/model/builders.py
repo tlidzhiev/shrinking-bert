@@ -1,4 +1,4 @@
-from transformers import AutoModelForTokenClassification, PreTrainedModel
+from transformers import AutoConfig, AutoModelForTokenClassification, PreTrainedModel
 
 from src.dataset import ID2LABEL, LABEL2ID, LABEL_NAMES
 
@@ -16,13 +16,29 @@ def load_ner_model(name: str = 'bert-base-cased', **kwargs) -> PreTrainedModel:
     )
 
 
+def init_ner_model(name: str = 'bert-base-cased', **config_overrides) -> PreTrainedModel:
+    config = AutoConfig.from_pretrained(
+        name,
+        num_labels=len(LABEL_NAMES),
+        id2label=ID2LABEL,
+        label2id=LABEL2ID,
+        **config_overrides,
+    )
+    return AutoModelForTokenClassification.from_config(config)
+
+
 def get_model(
     name: str = 'bert-base-cased',
+    pretrained: bool = True,
+    config_overrides: dict | None = None,
     embedding_rank: int | None = None,
     linear_rank: int | None = None,
     num_unique_layers: int | None = None,
 ) -> PreTrainedModel:
-    model = load_ner_model(name)
+    if pretrained:
+        model = load_ner_model(name)
+    else:
+        model = init_ner_model(name, **(config_overrides or {}))
 
     if embedding_rank is not None:
         model = factorize_embeddings(model, rank=embedding_rank)

@@ -6,6 +6,7 @@ defaults:
   - _self_
   - dataset: conll2003
   - model: baseline
+  - distillation: none
   - writer: comet
 
 override: false # Delete the run directory if it already holds a run
