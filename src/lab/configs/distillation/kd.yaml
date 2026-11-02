@@ -1,0 +1,4 @@
+enabled: true
+teacher_path: comet_export/baseline # fine-tuned teacher checkpoint (path relative to the project root)
+temperature: 2.0
+precompute_batch_size: 128 # teacher batch size when computing the train logits

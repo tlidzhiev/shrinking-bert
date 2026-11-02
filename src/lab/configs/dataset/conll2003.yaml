@@ -1,0 +1,4 @@
+tokenizer: bert-base-cased
+max_length: 180
+batch_size: 256
+max_samples: null
